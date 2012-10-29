@@ -8,18 +8,26 @@ public:
     Server(HANDLE exitEvent)
         : exitEvent_(exitEvent)
         , readEvent_(WSACreateEvent())
+        , sock_(SOCKET_ERROR)
     { }
 
     ~Server()
     {
-        closesocket(sock_);
-        CloseHandle(readEvent_);
+        if (sock_ != SOCKET_ERROR)
+        {
+            closesocket(sock_);
+        }
+
+        if (readEvent_ != INVALID_HANDLE_VALUE)
+        {
+            CloseHandle(readEvent_);
+        }
     }
 
     int init()
     {
         WSADATA data;
-        if (WSAStartup(MAKEWORD(2, 0),&data))
+        if (WSAStartup(MAKEWORD(2, 0), &data))
         {
             return 0;
         }
@@ -57,6 +65,11 @@ public:
 
     int decodeIR(char* out)
     {
+        assert(out != nullptr);
+        assert(exitEvent_ != INVALID_HANDLE_VALUE);
+        assert(readEvent_ != INVALID_HANDLE_VALUE);
+        assert(sock_ != SOCKET_ERROR);
+
         for (;;)
         {
             HANDLE const h[] = { exitEvent_, readEvent_ };
@@ -102,9 +115,16 @@ static Server* svr = nullptr;
 
 int init(HANDLE exitEvent)
 {
-    delete svr;
-    svr = new Server(exitEvent);
-    return svr->init();
+    if (exitEvent != INVALID_HANDLE_VALUE)
+    {
+        delete svr;
+        svr = new Server(exitEvent);
+        return svr->init();
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 void deinit()
@@ -128,8 +148,14 @@ int sendIR(ir_remote*, ir_ncode*, int)
 
 int decodeIR(ir_remote*, char* out)
 {
-    if (svr == nullptr) return 0;
-    return svr->decodeIR(out);
+    if (svr == nullptr || out == nullptr)
+    {
+        return 0;
+    }
+    else
+    {
+        return svr->decodeIR(out);
+    }
 }
 
 struct hardware* getHardware()
