@@ -28,7 +28,7 @@ build-stamp: configure-stamp
 
 	# Add here commands to compile the package.
 	# $(MAKE) # Uncomment this line for use without Qt Creator
-	#docbook-to-man debian/pultn9.sgml > pultn9.1
+	#docbook-to-man debian/remoten9.sgml > remoten9.1
 
 	touch $@
 
@@ -48,8 +48,8 @@ install: build
 	dh_clean -k 
 	dh_installdirs
 
-	# Add here commands to install the package into debian/pultn9.
-	$(MAKE) INSTALL_ROOT="$(CURDIR)"/debian/pultn9 install
+	# Add here commands to install the package into debian/remoten9.
+	$(MAKE) INSTALL_ROOT="$(CURDIR)"/debian/remoten9 install
 
 
 # Build architecture-independent files here.

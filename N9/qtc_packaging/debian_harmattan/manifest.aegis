@@ -65,6 +65,6 @@ AutoGenerateAegisFile
 
 	</request>
 
-	<for path="/opt/PultN9/bin/PultN9" />
+	<for path="/opt/RemoteN9/bin/RemoteN9" />
 	<for path="applauncherd-launcher::/usr/bin/applauncherd.bin" id="" />
 </aegis>

@@ -1,6 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
-import Pult 1.0
+import RemoteN9 1.0
 
 Page {
     tools: commonTools

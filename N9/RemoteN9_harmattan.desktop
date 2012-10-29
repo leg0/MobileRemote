@@ -3,9 +3,9 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Name=PultN9
-Exec=/opt/PultN9/bin/PultN9
-Icon=PultN964
+Name=RemoteN9
+Exec=/usr/bin/invoker --type=d -s /opt/RemoteN9/bin/RemoteN9
+Icon=/usr/share/icons/hicolor/80x80/apps/RemoteN980.png
 X-Window-Icon=
 X-HildonDesk-ShowInToolbar=true
 X-Osso-Type=application/x-executable
