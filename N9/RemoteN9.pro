@@ -6,7 +6,6 @@ DEPLOYMENTFOLDERS = folder_01
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
-QMAKE_CXXFLAGS += -std=c++0x
 
 # If your application uses the Qt Mobility libraries, uncomment the following
 # lines and add the respective components to the MOBILITY variable.
@@ -20,7 +19,10 @@ CONFIG += qdeclarative-boostable
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    BroadcastSocket.cpp
+    BroadcastSocket.cpp \
+    WlanConnectionIndicator.cpp
+
+QMAKE_CXXFLAGS += -std=c++0x
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -36,4 +38,5 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/changelog
 
 HEADERS += \
-    BroadcastSocket.h
+    BroadcastSocket.h \
+    WlanConnectionIndicator.h

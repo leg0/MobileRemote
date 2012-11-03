@@ -12,6 +12,16 @@ Page {
         id: sock
     }
 
+    WlanConnectionIndicator {
+        id: wlan
+    }
+
+    Rectangle {
+        width: 400
+        height: 300
+        color: wlan.hasConnection ? 'green' : 'red'
+    }
+
     Button {
         id: rew
         text: "<<"
