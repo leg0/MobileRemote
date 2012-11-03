@@ -1,18 +1,16 @@
 #include "BroadcastSocket.h"
 #include "qmlapplicationviewer.h"
+#include "WlanConnectionIndicator.h"
 
 #include <QtGui/QApplication>
-#include <QtNetwork/QUdpSocket>
 #include <QtDeclarative/QDeclarativeItem>
-
-//QUdpSocket* socket_ = 0;
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
-    //socket_ = new QUdpSocket(&app);
-
     qmlRegisterType<BroadcastSocket>("RemoteN9", 1, 0, "BroadcastSocket");
+    qmlRegisterType<WlanConnectionIndicator>("RemoteN9", 1, 0, "WlanConnectionIndicator");
+
+    QApplication app(argc, argv);
 
     QmlApplicationViewer viewer;
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationLockPortrait);

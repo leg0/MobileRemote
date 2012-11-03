@@ -3,8 +3,6 @@
 #include <QtCore/QByteArray>
 #include <QtNetwork/QUdpSocket>
 
-//extern QUdpSocket* socket_;
-
 BroadcastSocket::BroadcastSocket(QDeclarativeItem* parent)
     : QDeclarativeItem(parent)
     , socket_(new QUdpSocket(parent))
