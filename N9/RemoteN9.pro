@@ -17,6 +17,8 @@ QT += declarative
 # Speed up launching on MeeGo/Harmattan when using applauncherd daemon
 CONFIG += qdeclarative-boostable
 
+DEFINES += ORIENTATIONLOCK
+
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     BroadcastSocket.cpp \
