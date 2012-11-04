@@ -23,9 +23,7 @@ signals:
 
 private slots:
 
-    void onConfigurationAdded(QNetworkConfiguration const& cfg);
     void onConfigurationChanged(QNetworkConfiguration const& cfg);
-    void onConfigurationRemoved(QNetworkConfiguration const& cfg);
 
 private:
 
