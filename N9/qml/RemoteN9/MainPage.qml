@@ -1,9 +1,9 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import com.nokia.extras 1.0
 import RemoteN9 1.0
 
 Page {
-    tools: commonTools
     orientationLock: PageOrientation.LockPortrait
 
     property int buttonMargins: 20
@@ -17,10 +17,15 @@ Page {
         id: wlan
     }
 
+    InfoBanner {
+        id: banner
+        text: "No WiFi connection"
+        z: 10
+    }
 
     Rectangle {
         anchors.fill: parent
-        color: wlan.hasConnection ? 'green' : 'red'
+        color: 'black'
 
         RemoteButton {
             id: rew

@@ -7,5 +7,12 @@ Button {
 
     width: buttonWidth
     anchors.margins: buttonMargins
-    onClicked: sock.broadcast("00000000e0e0a25d 00 " + buttonCommand + " samsung\n")
+    onClicked: {
+        if (!wlan.hasConnection)
+        {
+            banner.show()
+        }
+
+        sock.broadcast("00000000e0e0a25d 00 " + buttonCommand + " samsung\n")
+    }
 }
