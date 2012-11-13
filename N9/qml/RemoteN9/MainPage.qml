@@ -28,62 +28,145 @@ Page {
         color: 'black'
 
         RemoteButton {
+            id: onoff
+            buttonCommand: "on/off"
+            anchors {
+                left: parent.left
+                top: parent.top
+            }
+            Image {
+                source: "on_off.png"
+                fillMode: Image.PreserveAspectFit
+                anchors {
+                    fill: parent
+                    margins: 4
+                }
+            }
+        }
+
+        RemoteButton {
             id: rew
             buttonCommand: "rew"
-            text: "<<"
-            anchors.left: parent.left
-            anchors.top: parent.top
+            anchors {
+                left: parent.left
+                top: onoff.bottom
+            }
+            Image {
+                source: "rew.png"
+                fillMode: Image.PreserveAspectFit
+                anchors {
+                    fill: parent
+                    margins: 10
+                }
+            }
         }
+
         RemoteButton {
             id: pause
             buttonCommand: "pause"
             text: "| |"
             anchors.left: rew.right
-            anchors.top: parent.top
+            anchors.top: onoff.bottom
         }
+
         RemoteButton {
             id: fwd
             buttonCommand: "fwd"
-            text: ">>"
-            anchors.left: pause.right
-            anchors.top: parent.top
+            anchors {
+                left: pause.right
+                top: onoff.bottom
+            }
+            Image {
+                source: "rew.png"
+                fillMode: Image.PreserveAspectFit
+                anchors {
+                    fill: parent
+                    margins: 10
+                }
+                rotation: 180
+            }
         }
 
         RemoteButton {
             id: rec
             buttonCommand: "rec"
-            anchors.left: parent.left
-            anchors.top: rew.bottom
-            text: "●"
+            anchors {
+                left: parent.left
+                top: rew.bottom
+            }
+            Image {
+                source: "rec.png"
+                fillMode: Image.PreserveAspectFit
+                anchors {
+                    fill: parent
+                    margins: 10
+                }
+            }
         }
         RemoteButton {
             id: play
             buttonCommand: "play"
-            anchors.left: rec.right
-            anchors.top: rew.bottom
-            text: ">"
+            anchors {
+                left: rec.right
+                top: rew.bottom
+            }
+            Image {
+                source: "play.png"
+                fillMode: Image.PreserveAspectFit
+                anchors {
+                    fill: parent
+                    margins: 10
+                }
+            }
         }
         RemoteButton {
             id: stop
             buttonCommand: "stop"
-            anchors.left: play.right
-            anchors.top: rew.bottom
-            text: "■"
+            anchors {
+                left: play.right
+                top: rew.bottom
+            }
+            Image {
+                source: "stop.png"
+                fillMode: Image.PreserveAspectFit
+                anchors {
+                    fill: parent
+                    margins: 14
+                }
+            }
         }
 
         RemoteButton {
             id: volup
             buttonCommand: 'volup'
-            anchors.top: stop.bottom
-            anchors.left: parent.left
-            text: 'vol+'
+            anchors {
+                left: parent.left
+                top: stop.bottom
+            }
+            Image {
+                source: "volup.png"
+                fillMode: Image.PreserveAspectFit
+                anchors {
+                    fill: parent
+                    margins: 4
+                }
+            }
         }
         RemoteButton {
             id: voldn
             buttonCommand: 'voldn'
-            anchors.top: volup.bottom
-            anchors.left: parent.left
-            text: 'vol-'
+            anchors {
+                top: volup.bottom
+                left: parent.left
+            }
+            Image {
+                source: "voldn.png"
+                fillMode: Image.PreserveAspectFit
+                anchors {
+                    fill: parent
+                    margins: 4
+                }
+            }
         }
     }
 }
