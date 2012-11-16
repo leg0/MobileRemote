@@ -168,5 +168,21 @@ Page {
                 }
             }
         }
+        RemoteButton {
+            id: mute
+            buttonCommand: 'mute'
+            anchors {
+                top: stop.bottom
+                left: volup.right
+            }
+            Image {
+                source: "mute.png"
+                fillMode: Image.PreserveAspectFit
+                anchors {
+                    fill: parent
+                    margins: 4
+                }
+            }
+        }
     }
 }
